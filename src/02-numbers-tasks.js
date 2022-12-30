@@ -198,7 +198,7 @@ function roundToPowerOfTen(num, pow) {
 }
 
 /**
- * Returns true is the number is prime; otherwise false.
+ * Returns true is the number is c; otherwise false.
  * See: https://en.wikipedia.org/wiki/Primality_test
  *
  * @param {number} n
@@ -215,6 +215,19 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(/* n */) {
+/*   if ((n > 1) && (n % 2 !== 0)) {
+    let num = 0;
+    const s = Math.sqrt(n);
+    for (let i = 3; i <= s; i++) {
+      if (n % i === 0) {
+        num += 1;
+      }
+      if (num > 0) {
+        return false;
+      }
+    }
+    return true;
+  } return false; */
   throw new Error('Not implemented');
 }
 
@@ -233,8 +246,12 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  const val = Number(value);
+  if (Number.isNaN(val) === false && val !== null && val !== undefined) {
+    return val;
+  }
+  return def;
 }
 
 module.exports = {
